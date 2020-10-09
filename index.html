@@ -8,22 +8,150 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
-
+		<link rel="stylesheet" href="dist/theme/white_cus.css" id="theme">
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme">
+		<style>
+		table {
+			width: 100%;
+		}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background="#1E2E47" data-markdown>
+          			<script type="text/template">
+						　
+						<br/>
+						　
+						<h1 style="color: #fff;">COVID-19</h1>
+						<p style="font-size: 2.2rem; color: #fff; opacity: .5; font-family: Source Sans Pro">Data Anlysis and Visualization</p>
+						　
+						<p style="font-size: 1.8rem; color: #fff; opacity: .9; margin-bottom: .4rem;">채연희 </p>
+						<p style="font-size: 1rem; color: #fff; opacity: .7; margin-top: 0; font-family: Helvetica">2020-10-09</p>
+					</script>
+        		</section>
+				<section style="text-align: left;" data-markdown>
+ 					<textarea data-template>
+					### 분석 개요 📑
+					　
+
+					|조사 목적|
+					|--|
+					|- 코로나19 국내 및 해외 현황 분석 <br> - 지표 연관 분석 <br> <br> <br> **데이터 출처**|
+					|- https://www.who.int/ <br> - https://countrycode.org/ <br> - https://www.worldometers.info/ <br> - https://kdx.kr/ <br> - http://kosis.kr/conts/nsportalStats/nsportalStats_0101Body.jsp?menuId=all <br> - https://github.com/jihoo-kim/Data-Science-for-COVID-19 <br> - http://ncov.mohw.go.kr/ |
+					</textarea>
+				</section>
+				<section style="text-align: left;" data-markdown>
+					### 분석 개요 📑
+					　
+					
+					|사용 라이브러리|
+					|--|
+					|<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						import pandas as pd
+						import numpy as np
+						import matplotlib.pyplot as plt
+						import json
+
+						# 날짜데이터 처리 라이브러리
+						import datetime
+						import time
+
+						# 정규화 라이브러리
+						from sklearn.preprocessing import MinMaxScaler
+
+						# 지도 데이터 시각화 라이브러리
+						import geopandas as gpd
+						import pydeck
+						import folium
+						from folium import plugins
+						import pyecharts
+						pyecharts.online()
+						from pyecharts import Line, Bar, Pie, Overlap
+						from IPython.display import display, Image
+
+						# 시각화, 한글깨짐 처리
+						import matplotlib.pyplot as plt
+						from matplotlib import font_manager, rc
+						font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+						rc('font',family=font_name)
+					</code></pre>
+				</section>
+				<section data-background="#1E2E47" data-markdown>
+          			<script type="text/template">
+					<p style="font-size: 10rem; color: #fff; font-weight: 700; font-family: Helvetica">1</p>
+					<p style="font-size: 1.8rem; color: #fff; font-weight: 400;">세계 코로나 현황</p>
+					</script>
+				</section>
+				<section style="text-align: left;" data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">1.1 국가별 COVID-19 누적 확진자 🌎</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">2020-09-21　|　plotly.graph_objects.Choroplethmapbox　|　map json : https://gist.github.com/markmarkoh/2969317</p>
+					<iframe width="100%" height = "450" src="\graphs\1.1 world_covid_map.html"></iframe>
+					</textarea>
+				</section>
+				<section style="text-align: left;" data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">1.2 세계 확진자·사망자 추세 📈</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">2020-09-21　|　plotly.graph_objects.Scatter　|　범례 클릭 및 시간 범위 선택 가능</p>
+					<iframe width="120%" height = "480" src="\graphs\1.2 covid_cases_and_deaths.html"></iframe>
+					</textarea>
+				</section>
+				<section style="text-align: left;" data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">1.3 누적 확진자 TOP10 국가의 확진자 발생 추세 📈</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">2020-09-21 기준 누적확진자 TOP10　|　plotly.express.line</p>
+					<iframe width="120%" height = "480" src="\graphs\1.3 covid_10_cases.html"></iframe>
+					</textarea>
+				</section>
+				<section style="text-align: left;" data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">1.4 누적 사망자 TOP10 국가의 사망자 발생 추세 📈</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">2020-09-21 기준 누적사망자 TOP10　|　plotly.express.line</p>
+					<iframe width="120%" height = "480" src="\graphs\1.4 covid_10_death.html"></iframe>
+					</textarea>
+				</section>
+				<section data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700; text-align: left;">1.5 WHO 지역별 </p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400; text-align: left;">WHO 기준 세계 영역　|　츨처 : https://endhep2030.org/hepatitis-a-global-problem/</p>
+					<img width="70%" height = "70%" align ="center" src="\graphs\1.5 HBV-MAP-01.png"></img>
+					</textarea>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">1.5 WHO 지역별 📈</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">WHO 기준 세계 영역별 확진자 추세</p>
+					<iframe width="120%" height = "480" src="\graphs\1.5 who_cases.html"></iframe>
+					</textarea>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+				 	<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">1.5 WHO 지역별 📈</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">WHO 기준 세계 영역별 사망자 추세</p>
+					<iframe width="120%" height = "480" src="\graphs\1.5 who_deaths.html"></iframe>
+					</textarea>
+				</section>
+
+				<section>
+					<iframe width="100%" height="600px" src="/examples/assets/render.html"></iframe>
+				</section>
+
 			</div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
+		<script>
+			Reveal.initialize({
+				plugins: [ RevealMarkdown ]
+			});
+		</script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
 			// More info about initialization & config:

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white_cus.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+					## COVID-19 데이터 분석
+					</textarea>
+				</section>
+				<section data-markdown>
+ 					<textarea data-template>
+					 ### 이거 왜 안되지  
+					 - 되어야하는데  
+					 - 이제 되네  
+					 `이것도`
+					</textarea>
+				</section>
+				<section>Slide 3</section>
+				<section>
+					코로나 확진자 data
+					<iframe width="900" height="700" frameborder="0" scrolling="no" src="//plotly.com/~yeonheechae425/4.embed?showlink=false"></iframe>
+				</section>
+				<section>
+					<iframe width="100%" height="600" frameborder="0" scrolling="no" src="//plotly.com/~yeonheechae425/4.embed"></iframe>
+				</section>
+				<section>
+					<iframe width="100%" height="600px" src="/examples/assets/render.html"></iframe>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script>
+			Reveal.initialize({
+				plugins: [ RevealMarkdown ]
+			});
+		</script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
