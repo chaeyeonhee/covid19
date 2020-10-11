@@ -140,7 +140,7 @@
 				</section>
 				<section style="text-align: left;" data-markdown>
 					<textarea data-template>
-					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">2.1 누적 확진자 수 선형회귀분석</p>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">2.1 누적 확진자 수 선형회귀분석 💡</p>
 					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">종속변수 : 2020-09-21 기준 누적 확진자　|　독립변수 : 인구, 면적, GDP(단위: 100만달러), 합계출산률, 중위연령　</p>
 					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
 						"""
@@ -182,7 +182,7 @@
 
 				<section style="text-align: left;" data-markdown>
 					<textarea data-template>
-					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">2.2 누적 사망자 수 선형회귀분석</p>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">2.2 누적 사망자 수 선형회귀분석 💡</p>
 					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">종속변수 : 2020-09-21 기준 누적 사망자　|　독립변수 : 면적, GDP(단위: 100만달러), 합계출산률, 중위연령　</p>
 					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
 						"""
@@ -220,6 +220,46 @@
 					</code></pre>					
 					</textarea>
 				</section>
+			
+				<section style="text-align: left;" data-markdown>
+					<textarea data-template>
+					<p style="font-size: 1.8rem; color: #000; font-weight: 700;">2.2 누적 사망자 수 선형회귀분석 💡</p>
+					<p style="font-size: 1rem; color: #000; opacity: .5; font-weight: 400;">종속변수 : 2020-09-21 기준 누적 사망자　|　종속변수가 누적 사망자일 경우, 독립변수에 누적 확진자를 입력하면 매우 유의한 모형　</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						"""
+								    OLS Regression Results                            
+						==============================================================================
+						Dep. Variable:      Cumulative_deaths   R-squared:                       0.888
+						Model:                            OLS   Adj. R-squared:                  0.887
+						Method:                 Least Squares   F-statistic:                     853.4
+						Date:                Mon, 12 Oct 2020   Prob (F-statistic):          5.49e-103
+						Time:                        00:26:50   Log-Likelihood:                -2214.3
+						No. Observations:                 218   AIC:                             4435.
+						Df Residuals:                     215   BIC:                             4445.
+						Df Model:                           2                                         
+						Covariance Type:            nonrobust                                         
+						====================================================================================
+							       coef    std err          t      P>|t|      [0.025      0.975]
+						------------------------------------------------------------------------------------
+						Intercept          354.5050    438.604      0.808      0.420    -510.010    1219.020
+						Cumulative_cases     0.0226      0.001     26.907      0.000       0.021       0.024
+						GDP_MIL              0.0025      0.000      6.149      0.000       0.002       0.003
+						==============================================================================
+						Omnibus:                      185.278   Durbin-Watson:                   2.081
+						Prob(Omnibus):                  0.000   Jarque-Bera (JB):            12333.160
+						Skew:                           2.639   Prob(JB):                         0.00
+						Kurtosis:                      39.468   Cond. No.                     1.57e+06
+						==============================================================================
+
+						Warnings:
+						[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+						[2] The condition number is large, 1.57e+06. This might indicate that there are
+						strong multicollinearity or other numerical problems.
+						"""
+					</code></pre>					
+					</textarea>
+				</section>
+			
 				<section data-markdown data-background="#37567d">
 					<textarea data-template>
 					<p style="font-size: 10rem; color: #FFF; font-weight: 700; font-family: 'Montserrat'">3</p>
